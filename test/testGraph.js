@@ -46,5 +46,17 @@ describe('BFS', () => {
     it('should return true for path Kolkata to pune', () => {
       assert.strictEqual(bfs(pairs, 'Kolkata', 'pune'), false);
     });
+
+    it('should return false for path Kolkata to Kolkata', () => {
+      assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Bangalore', 'Chennai'], ['Chennai', 'Bangalore']], 'Kolkata', 'Kolkata'), false);
+    });
+
+    it('should return false for path Kolkata to Kolkata', () => {
+      assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Bangalore', 'Chennai'], ['Chennai', 'Bangalore']], 'Kolkata', 'Kolkata'), false);
+    });
+
+    it('should return true for path Kolkata to Kolkata for given paries', () => {
+      assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Kolkata', 'Kolkata']], 'Kolkata', 'Kolkata'), true);
+    });
   });
 });

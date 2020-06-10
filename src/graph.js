@@ -16,18 +16,19 @@ const getGraph = function(pairs) {
 
 const bfs = function(pairs, source, target) {
   const graph = getGraph(pairs);
+  
   toBeVisited = [source];
   visited = [];
-  let dequeue;
+  let currentElement;
   while (toBeVisited.length > 0) {
-    dequeue = toBeVisited.shift();
-    visited.push(dequeue);
-
-    if (target === dequeue) {
+    currentElement = toBeVisited.shift();
+    visited.push(currentElement);
+    
+    if (graph[currentElement] && graph[currentElement].includes(target)) {
       return true;
     }
 
-    graph[dequeue].forEach((element) => {
+    graph[currentElement] && graph[currentElement].forEach((element) => {
       if (!toBeVisited.includes(element) && !visited.includes(element)) {
         toBeVisited.push(element);
       }

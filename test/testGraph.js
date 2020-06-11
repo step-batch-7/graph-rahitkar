@@ -40,23 +40,23 @@ describe('BFS', () => {
   });
 
   describe('bfs', () => {
-    it('should return true for path Kolkata to Chennai', () => {
+    it('should validate for path Kolkata to Chennai for given pairs', () => {
       assert.strictEqual(bfs(pairs, 'Kolkata', 'Chennai'), true);
     });
-    it('should return true for path Kolkata to pune', () => {
+    it('should validate for path Kolkata to pune for given pairs', () => {
       assert.strictEqual(bfs(pairs, 'Kolkata', 'pune'), false);
     });
 
-    it('should return false for path Kolkata to Kolkata', () => {
+    it('should invalidate for path Kolkata to Kolkata for given pairs', () => {
       assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Bangalore', 'Chennai'], ['Chennai', 'Bangalore']], 'Kolkata', 'Kolkata'), false);
     });
 
-    it('should return false for path Kolkata to Kolkata', () => {
-      assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Bangalore', 'Chennai'], ['Chennai', 'Bangalore']], 'Kolkata', 'Kolkata'), false);
-    });
-
-    it('should return true for path Kolkata to Kolkata for given paries', () => {
+    it('should validate for path Kolkata to Kolkata for given paries', () => {
       assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Kolkata', 'Kolkata']], 'Kolkata', 'Kolkata'), true);
+    });
+
+    it('should invalidate for path Kolkata to Kolkata for given pairs', () => {
+      assert.strictEqual(bfs([['Kolkata', 'Bangalore'], ['Bangalore', 'Chennai']], 'Kolkata', 'Kolkata'), false);
     });
   });
 });
